@@ -7,24 +7,24 @@ export default function Widget(props) {
         {
             id: 0,
             v: "KHQr27xsOD0",
-            date: new Date(2022, 3, 17, 1, 20, 30)
+            date: new Date(2022, 3, 23, 1, 20, 30)
         },
 
         {
             id: 1,
             v: "Hx9AfGs5cX4",
-            date: new Date(2022, 3, 15, 1, 20, 30)
+            date: new Date(2022, 3, 22, 1, 20, 30)
         },
 
         {
             id: 2,
             v: "l557BwTjLII",
-            date: new Date(2022, 3, 14, 1, 20, 30)
+            date: new Date(2022, 3, 21, 1, 20, 30)
         },
 
         {
             id: 3,
-            v: "xYAHb0QvxVk", date: new Date(2022, 3, 13, 1, 20, 30)
+            v: "xYAHb0QvxVk", date: new Date(2022, 3, 23, 1, 20, 30)
 
         },
 
@@ -42,39 +42,9 @@ export default function Widget(props) {
 
     ]
 
-    function getBeautifulDate(d, id, url) {
-        let current = new Date();
-
-        let timeDiff = Math.abs(current.getTime() - d.getTime());
-        let diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        switch (diffDays) {
-            case 0:
-                return <Player key={id} url={url} date='Видео загружено сегодня'/>
-            case 1:
-                return <Player key={id} url={url} date='Видео загружено вчера'/>
-            case 2:
-                return <Player key={id} url={url} date='Видео загружено 2 дня назад'/>
-            case 3:
-                return <Player key={id} url={url} date='Видео загружено 3 дня назад'/>
-            case 4:
-                return <Player key={id} url={url} date='Видео загружено 4 дня назад'/>
-            case 5:
-                return <Player key={id} url={url} date='Видео загружено 5 дней назад'/>
-            case 6:
-                return <Player key={id} url={url} date='Видео загружено 6 дней назад'/>
-            case 7:
-                return <Player key={id} url={url} date='Видео загружено неделю назад'/>
-            default:
-                return <Player key={id} url={url} date='Видео загружено давно...'/>
-        }
-    }
-
-
     let arr = [];
     videoArr.forEach(video => {
-            arr.push(
-                getBeautifulDate(video.date, video.id, video.v)
-            );
+            arr.push(<Player key={video.id} data={video}/>);
         }
     );
     return (

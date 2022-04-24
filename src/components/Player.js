@@ -1,7 +1,10 @@
 import React from "react";
 
-export default function Player(props) {
-    let url = "https://www.youtube.com/embed/" + props.url;
+import hoc from '../components/hoc/withHOC';
+
+function Player(props) {
+    console.log(props)
+    let url = "https://www.youtube.com/embed/" + props.data.v;
     return (
         <div className='player'>
             <iframe
@@ -16,3 +19,5 @@ export default function Player(props) {
         </div>
     );
 }
+
+export default hoc(Player);
